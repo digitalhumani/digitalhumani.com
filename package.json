@@ -1,0 +1,17 @@
+{
+  "name": "digitalhumani.com",
+  "version": "1.0.0",
+  "description": "The public-facing marketing site for DigitalHumani",
+  "scripts": {
+    "serve": "npx light-server -b localhost -o -s ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalhumani/digitalhumani.com.git"
+  },
+  "author": "DigitalHumani Team",
+  "homepage": "https://digitalhumani.com",
+  "devDependencies": {
+    "light-server": "^2.9.1"
+  }
+}
