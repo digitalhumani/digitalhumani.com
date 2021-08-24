@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RaaS - Reforestation as a Service - Tree Planting API</title>
+    <meta name="description"
+        content="A Simple Application Programming Interface (API) to help connect websites and mobile applications to trusted reforestation organizations to have trees planted." />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+    <meta property="og:title" content="DigitalHumani - Reforestation as a Service" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.digitalhumani.com" />
+    <meta property="og:image" content="https://digitalhumani.com/img/raas-header.jpg" />
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K8CK8WQ');</script>
+    <!-- End Google Tag Manager -->
+
+
+
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/style.css" rel="stylesheet" media="screen" />
+    <link href="css/color.css" rel="stylesheet" media="screen" />
+    <script src="js/modernizr.custom.js"></script>
+    <!-- =======================================================
+    Theme Name: Mamba
+    Theme URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8CK8WQ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="menu-area">
+        <div id="dl-menu" class="dl-menuwrapper">
+            <button class="dl-trigger">Open Menu</button>
+            <ul class="dl-menu">
+                <li>
+                    <a href="#intro">Home</a>
+                </li>
+                <li>
+                    <a href="/donate.html" target="_blank">
+                        Donate
+                    </a>
+                </li>
+                <li><a href="#how">How it works</a></li>
+                <li><a href="#use-cases">Use cases</a></li>
+                <li><a href="#partners">Reforestation Partners</a></li>
+                <li><a href="#architecture">Our architecture</a></li>
+                <li><a href="#team">Our team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <!-- /dl-menuwrapper -->
+    </div>
+
+    <!-- intro area -->
+    <div id="intro">
+        <div class="intro-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="brand">
+                            <h1><a href="index.html">RaaS</a></h1>
+                            <div class="line-spacer"></div>
+                            <p>
+                                <span><b>(Reforestation as a Service)</b></span>
+                            </p>
+                            <p><span>A platform which easily integrates with your</span></p>
+                            <p><span>products to reforest the planet</span></p>
+                        </div>
+                        <div class="cta-header">
+                            <a href="https://my.digitalhumani.com/register">
+                                <button class="cta-button border-2">Start Planting</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cta">
+            <a href="https://my.digitalhumani.com/login" class="cta-link">Sign In</a>
+            <a href="https://my.digitalhumani.com/register">
+                <button class="cta-button">Sign Up</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- How -->
+    <section id="how" class="home-section bg-white" style="padding-bottom: 90px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>How it works</h2>
+                        <p>
+                            We provide simple and easy to use Application Programming Interfaces
+                            (APIs) to help connect websites and mobile applications to trusted
+                            reforestation organizations to have trees planted.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                        <i class="fa fa-cog fa-4x"></i>
+                        <h4>1- Choose a reforestation project</h4>
+                        <p>
+                            Choose a reforestation project from our list, in various countries.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
+                    <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                        <i class="fa fa-code fa-4x"></i>
+                        <h4>2- Add code to your website or app</h4>
+                        <p>
+                            Add a few line of code in your website or mobile app to call the API
+                            requesting the planting of a tree.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.5s">
+                    <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                        <i class="fa fa-desktop fa-4x"></i>
+                        <h4>3- A user makes an action</h4>
+                        <p>
+                            When your users make the action of your choice (buying an item in a
+                            mobile game, subscribing to online billing, buying a specific
+                            product on your website, etc.), a request to plant a tree will be
+                            made.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.7s">
+                    <div class="service-box wow bounceInDown" data-wow-delay="0.1s">
+                        <i class="fa fa-pagelines fa-4x"></i>
+                        <h4>4- A tree is planted!</h4>
+                        <p>
+                            That's it! You will be billed ($1 per tree) by the trusted
+                            reforestation organizations of your choice. You will receive a
+                            monthly invoice and report indicating how many trees were planted on
+                            your behalf.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <!-- It's a free section -->
+            <div style="text-align: left; margin-top: 5rem">
+                <h5 style="text-align: center;">The solution is completely free of charge.</h5>
+                <p>
+                    It is developed and maintained by a group of volunteers who want to make
+                    their part to help fight climate change. <br /><br />
+                    The $1 / tree is paid <em>directly</em> to the reforestation organization
+                    you choose, <b>without us handling the money</b>. This way, you can be sure
+                    that the money will be used to have the trees planted.
+                </p>
+            </div>
+            <div class="row" style="margin-top: 100px;">
+                <div class="dashboard-section">
+                    <div class="section-heading">
+                        <h2>Dashboard</h2>
+                        <p>
+                            The DigitalHumani dashboard is the quickest way to get started planting trees. From the
+                            dashboard, you can submit tree planting requests, view stats around your tree planting
+                            usage, retrieve info about the API including access info and documentation, and more.
+                        </p>
+                        <div class="cta-body">
+                            <a href="https://my.digitalhumani.com/register">
+                                <button class="cta-button border-2 invert">Get Started</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dashboard-screenshot">
+                        <img src="img/dashboard-screenshot.png" alt="Dashboard Screenshot">
+                    </div>
+                </div>
+                <div class="col-md-offset-2 col-md-8">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- spacer -->
+    <section id="spacer1" class="home-section spacer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="color-light">
+                        <h2 class="wow bounceInDown" data-wow-delay="1s">
+                            Trees fight climate change by absorbing CO2 from the atmosphere.
+                        </h2>
+                        <p class="lead wow bounceInUp" data-wow-delay="2s">
+                            Each tree can absorb 22kg (50 pounds) of CO2 per year for 30 years.
+                        </p>
+                        <p class="lead wow bounceInUp" data-wow-delay="3s">
+                            Furthermore, trees contribute to economic growth, poverty
+                            alleviation, food security and biodiversity conservation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use cases for your business -->
+    <section id="use-cases" class="home-section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Use cases for your business</h2>
+                        <b>
+                            <p>
+                                Here are some examples of use cases where you might want to have
+                                a tree planted:
+                            </p>
+                        </b>
+                        <br />
+                        <ul>
+                            <li>
+                                <p style="text-align: left">
+                                    When a user makes an in-app purchase in your mobile game
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left">
+                                    When a user switches to online billing
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left">
+                                    When a user subscribes to a 6 months plan
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left">
+                                    When a user buys a specific product on your website
+                                </p>
+                            </li>
+                            <li>
+                                <p style="text-align: left">When a user refers a friend</p>
+                            </li>
+                            <li>
+                                <p style="text-align: left">etc.</p>
+                            </li>
+
+                            <br />
+                        </ul>
+                        <font color="#088A08">
+                            <p>
+                                These are only examples, of course. It's up to you to decide
+                                when a request for a tree will be made, depending of which
+                                action, product or service you want to promote.
+                            </p>
+                        </font>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reforestation Partners -->
+    <section id="partners" class="home-section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Reforestation Partners</h2>
+                        <p>
+                            <b>
+                                The RaaS (Reforestation as a Service) solution currently works
+                                with 7 reforestation organizations</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <img src="img/OneTreePlanted-logo.png" alt="One Tree Planted Logo" />
+            <p>
+                <b><a href="https://onetreeplanted.org/" target="_blank">One Tree Planted</a></b>
+                is a non-profit organization with over 2.5 millions trees planted since their
+                foundation in 2014. They are based in Vermont, USA. They currently have
+                reforestation projects in the following countries, from which you can have your
+                trees planted:
+
+                <b>Australia</b>, <b>Brazil</b>, <b>Canada</b> (British Columbia, New Brunswick,
+                Ontario, Québec), <b>Colombia</b>, <b>Côte d'Ivoire</b>, <b>Denmark</b>, <b>Ethiopia</b>,
+                <b>Ghana</b>, <b>Guatemala</b>, <b>Haiti</b>, <b>Honduras</b>, <b>Iceland</b>,
+                <b>India</b>, <b>Indonesia</b>, <b>Kenya</b>, <b>Malawi</b>, <b>Mexico</b>, <b>New Zealand</b>,
+                <b>Peru</b>, <b>Philippines</b>, <b>Romania</b>, <b>Rwanda</b>,
+                <b>Spain</b>, <b>Tanzania</b>, <b>Uganda</b>, <b>United States</b> (Appalachia, California,
+                Oregon, Florida) and <b>Vietnam</b>. Details on the projects
+                <b><a href=" https://onetreeplanted.org/collections/where-we-plant" target="_blank">here</a></b>.
+            </p>
+            <p>
+                <b>Note:</b> Because of an unusual high demands for trees in the last few
+                months, availability of certain projects will have to be confirmed.
+            </p>
+            <p>
+                One Tree Planted is a Registered 501(c)(3) charity in the US. Their latest
+                annual report (2019) available
+                <b><a href="https://cdn.shopify.com/s/files/1/0326/7189/files/2019_Annual_Report.pdf"
+                        target="_blank">here</a></b>.
+            </p>
+
+            <br />
+            <br />
+            <img src="img/chase-africa-logo.jpg" alt="Chase Africa Logo" />
+            <br />
+            <p></p>
+            <p>
+                <b><a href="https://www.chaseafrica.org.uk/" target="_blank">Chase Africa</a></b>
+                works with a local partner and the Kenya Forest Service to restore the degraded
+                forests on the slopes of Mount Kenya. The Mount Kenya forest supports a vast
+                array of flora and fauna and is an UNESCO World Heritage Site.
+            </p>
+            <p>
+                DigitalHumani partners with Chase Africa for their reforestation efforts on
+                Mount Kenya forest, and through the RaaS solution, you can have trees planted by
+                Chase Africa in this project in Kenya. So far, 66,000 indigenous trees were
+                restored on Mount Kenya forest by Chase Africa. Details on the project in Kenya
+                (section Forest Restoration)
+                <b><a href="https://www.chaseafrica.org.uk/about-us/sustainable-environment/"
+                        target="_blank">here</a></b>.
+            </p>
+
+            <p>
+                Chase Africa is a Registered Charity in the UK (No: 1082958) and their annual
+                reports are available
+                <b><a href="https://www.chaseafrica.org.uk/information/annual-reports/" target="_blank">here</a></b>.
+
+                <br />
+
+
+                <br />
+                <img src="img/TIST_Logo_Green.png" alt="TIST Logo" />
+
+            <p>
+                <b><a href="https://program.tist.org/" target="_blank">TIST</a></b> (The
+                International Small Group and Tree Planting Program) encourages small groups of
+                subsistence farmers to improve their local environment and farms by planting and
+                maintaining trees on degraded and/or unused land. Over 88,000 farmers in 4
+                countries have successfully planted more than 18 millions trees since their
+                foundation in 1999. Through the RaaS solution, you can have trees planted by the
+                TIST farmers in <b>Kenya</b> and <b>India</b>. Details on the project in India
+                <b><a href=" https://program.tist.org/india" target="_blank">here</a></b> and on
+                the project in Kenya
+                <b><a href="https://program.tist.org/kenya" target="_blank">here</a></b>.
+            </p>
+
+            <p>
+                TIST is a project, run through a public-private partnership. Tax-deductible
+                donations to I4EI, TIST's non-profit arm and a registered 501(c)(3) charity in
+                the US, go directly to planting trees. Details
+                <b><a href="https://www.i4ei.org/#about" target="_blank">here</a></b>.
+            </p>
+
+            <br />
+            <img src="img/Sustainable-Harvest-logo.png" alt="Sustainable Harvest Logo" />
+
+            <p>
+                <b><a href="https://www.sustainableharvest.org/" target="_blank">Sustainable Harvest
+                        International</a></b>
+                was built on the idea that environmental devastation and rural poverty are
+                unavoidably linked. They partner with farmers, providing long-term support and
+                hands-on training. Since 1997, they've worked with over 2,891 families and
+                planted 4 million trees. Through the RaaS solution, you can have trees planted
+                by the Sustainable Harvest International farmers in <b>Honduras</b> and
+                <b>Belize</b>. Details on these 2 projects
+                <b><a href="https://www.sustainableharvest.org/programs" target="_blank">here</a></b>.
+            </p>
+
+            <p>
+                Sustainable Harvest International is a Registered 501(c)(3) charity in the US,
+                based in Boston, Massachusetts. 501(c) certificate and annual report available
+                <b><a href="https://www.sustainableharvest.org/financial-archive" target="_blank">here</a></b>.
+            </p>
+
+            <br />
+            <img src="img/conserve-natural-forests-logo.png" alt="Conserve Natural Forests Logo" />
+
+            <p>
+                <b><a href="https://conservenaturalforests.org/" target="_blank">Conserve Natural Forests</a></b>
+                is a non-profit foundation focused on forest restoration and wildlife
+                conservation in the tropical mountain forests of northern <b>Thailand</b>. This
+                includes the restoration of nearby degraded landscapes and the preservation of
+                local forests.
+            </p>
+
+            <p>
+                More information about their reforestation work
+                <b><a href="https://conservenaturalforests.org/reforestation/" target="_blank">here</a></b>.
+            </p>
+
+
+            <br />
+            <img src="img/logo-Planting-On-Demand.png" alt="Planting on Demand Logo" />
+
+            <p>
+                <b><a href="https://www.plantingondemand.org/" target="_blank">Planting on Demand</a></b> is a company
+                offering mangrove reforestation via the <a href="https://www.marineconservationphilippines.org/"
+                    target="_blank">Marine Conservation Philippines</a> (non-profit in the <b>Philippines</b>) and via
+                <a href="http://www.carbonethics.org/" target="_blank">CarbonEthics</a> (non-profit in
+                <b>Indonesia</b>).
+                Planting on Demand can send pictures that show the planting area before, while and after planting,
+                including pictures of a tree planter holding a sign with the name of your company on it.
+
+            </p>
+
+            <p>
+                More information about their reforestation work
+                <b><a href="https://www.plantingondemand.org/" target="_blank">here</a></b>.
+            </p>
+
+            <br />
+            <img src="img/Logo-Community-Forests-International.png" alt="Community Forests International Logo" />
+            </p>
+
+            <p>
+                <b><a href="https://forestsinternational.org/" target="_blank">Community Forests International</a></b>
+                is a
+                Canadian charity, working to protect and restore the climate by enabling communities and forests to
+                thrive together. DigitalHumani's RaaS (Reforestation as a Service) solution
+                can be used to plant trees in <b>Acadian forests</b> in Canada (primarily New Brunswick and Nova Scotia)
+                on lands owned by Community Forests International. These lands
+                are purchased for the purpose of bringing healthy forests back permanently and for the next generation.
+            </p>
+            <p>
+                Details on the Acadian project available
+                <b><a href="https://forestsinternational.org/restoration/acadianforest/" target="_blank">here</a></b>
+                and
+                their annual reports are available <b><a
+                        href="https://forestsinternational.org/homepage/about/annual-reports/"
+                        target="_blank">here</a></b>.
+            </p>
+
+
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture" class="home-section bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Our architecture</h2>
+                        <p>
+                            Our architecture is 100% on AWS (Amazon Web Services), offering us
+                            (and you!) a reliable, scalable, cost-effective and secure solution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <img style="width: 100%;" src="img/3D-architecture.png" alt="DigitalHumani architecture" />
+        </div>
+    </section>
+
+    <!-- spacer 2 -->
+    <section id="spacer2" class="home-section spacer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="color-light">
+                        <h2 class="wow bounceInDown" data-wow-delay="1s">
+                            "Forests represent one of the largest, most cost-effective climate
+                            solutions available today."
+                        </h2>
+                        <p class="lead wow bounceInUp" data-wow-delay="2s">
+                            (New York Declaration on Forests, 2014)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Our Team Section ======= -->
+    <section id="team">
+        <div class="section-title">
+            <h2>Our Team</h2>
+            <p>
+                We are a volunteer collective of IT oriented people from all around the world
+                who want to do our part in fighting climate change. Registered as a non-profit (ID 1176355692) in
+                Quebec, Canada.
+            </p>
+        </div>
+
+        <div class="team-container">
+            <div class="member" style="background-image: url('img/team/picture-jonathan-villiard.png')"
+                alt="Jonathan Villiard">
+                <div class="member-info">
+                    <span class="member-name">Jonathan Villiard</span>
+                    <span class="member-title"><i>Founder / Solutions Architect</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/jonathanvilliard" alt="LinkedIn - Jonathan Villiard"
+                            target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Jonathan Villiard is the founder and one of the solutions architects of
+                        DigitalHumani. He lives in Montréal, Canada. His inspiration stemmed
+                        from the idea that climate change might well be the biggest problem of
+                        our time, and planting trees represents one of the most cost-effective
+                        climate solutions available. With this in mind, he wanted to put to good
+                        use cloud technologies and be part of the climate solution. If he could
+                        pick up a new skill in an instant, it would be teleportation (that’s a
+                        skill, right? Right?)
+                    </p>
+                </div>
+            </div>
+            <div class="member" style="background-image: url('img/team/picture-carl-scheller.jpg')" alt="Carl Scheller">
+                <div class="member-info">
+                    <span class="member-name">Carl Scheller</span>
+                    <span class="member-title"><i>Software Engineer</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/cjscheller" alt="LinkedIn - Carl Scheller" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Carl helps lead DigitalHumani's engineering efforts. Hailing from
+                        Florida, Carl is inspired to contribute towards DigitalHumani's goal of
+                        making the planet a greener and healthier place 🌲. He's hoping to learn
+                        the keyboard soon.
+                    </p>
+                </div>
+            </div>
+            <div class="member" style="background-image: url('img/team/picture-tim-davenport.jpg')"
+                alt="Jonathan Villiard">
+                <div class="member-info">
+                    <span class="member-name">Tim Davenport</span>
+                    <span class="member-title"><i>Solutions Architect</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/tim-davenport-6102a433/" alt="LinkedIn - Tim Davenport"
+                            target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Tim Davenport is a Solutions Architect currently residing in North
+                        Yorkshire, UK. His work with DigitalHumani is mostly in engineering, but
+                        he also works on roadmaps and arranges regular team catch ups. His
+                        inspiration to join DigitalHumani was the opportunity to put his
+                        knowledge and skills to good use in return for the satisfaction of
+                        knowing it's making a difference. If Tim could pick up a new skill in an
+                        instant, it would be to speak every single language on the planet.
+                    </p>
+                </div>
+            </div>
+            <div class="member" style="background-image: url('img/team/picture-malia-stauffer.jpg')"
+                alt="Malia Stauffer">
+                <div class="member-info">
+                    <span class="member-name">Malia Stauffer</span>
+                    <span class="member-title"><i>Strategic Communications and Marketing</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/halimalia/" alt="LinkedIn - Malia Stauffer"
+                            target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Malia Stauffer works in Strategic Communications and Marketing. She is
+                        originally from Kailua-Kona, Hawai’i, but is currently living in
+                        Auckland, New Zealand. It is her ambition to reflect personal values of
+                        conservation and sustainability with professional pursuits. She feels
+                        that working with DigitalHumani allows that ambition to come to
+                        fruition, and provides an outlet to collaborate with a team of
+                        like-minded, action-oriented people. If she could pick up a new skill in
+                        an instant, it would be mastering theories of quantum physics.
+                    </p>
+                </div>
+            </div>
+            <div class="member" style="background-image: url('img/team/picture-slawomir-biernacki.jpg')"
+                alt="Slawomir Biernacki">
+                <div class="member-info">
+                    <span class="member-name">Slawomir Biernacki</span>
+                    <span class="member-title"><i>Software Engineer / DevOps</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/slawomirbiernacki/" alt="LinkedIn - Slawomir Biernacki"
+                            target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Slawomir Biernacki hails from London, UK, and works as a Software
+                        engineer and in DevOps. His inspiration to join the DigitalHumani Team
+                        stems from his belief that we humans are responsible for the health of
+                        our planet. He joined in as an effort to help conserve the natural
+                        environment and fight climate change. If Slawomir could pick up a new
+                        skill in an instant, it would be telling jokes that are actually funny.
+                    </p>
+                </div>
+            </div>
+            <div class="member" style="background-image: url('img/team/picture-nik-osvalds.png')" alt="Nik Osvalds">
+                <div class="member-info">
+                    <span class="member-name">Nik Osvalds</span>
+                    <span class="member-title"><i>Fullstack Developer</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/nosvalds/" alt="LinkedIn - Nik Osvalds" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Nikolas Osvalds lives in Bristol, U.K. He is passionate about making a
+                        difference, especially in the sphere of climate action, and was looking
+                        for a way to give back with his newly learned web development skills.
+                        He’s found working as a developer with DigitalHumani to be a great way
+                        to learn new technologies and skills in a relaxed and fun environment
+                        while contributing to reforestation efforts. If Nik could pick up a new
+                        skill in an instant, it would be playing the piano and reading music.
+                    </p>
+                </div>
+            </div>
+
+            <div class="member" style="background-image: url('img/team/picture-martin-malo.jpg')" alt="Martin Malo">
+                <div class="member-info">
+                    <span class="member-name">Martin Malo</span>
+                    <span class="member-title"><i>Software Engineer / Senior iOS Developer</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/malomartin/" alt="LinkedIn - Martin Malo" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Martin Malo lives in Joliette, Québec, Canada and is a Software Engineer
+                        and Senior iOS Developer. His inspiration to join the DigitalHumani team
+                        stemmed from a want for the human race to become aware of the
+                        destruction that occurred and that is still occurring because of
+                        lifestyle choices. Martin believes that together we can become Earth’s
+                        protector and live in a more sustainable way. If Martin could pick up a
+                        new skill in an instant, it would be to speak and read all languages.
+                    </p>
+                </div>
+            </div>
+
+            <div class="member" style="background-image: url('img/team/picture-xavier-bolduc-meilleur.png')"
+                alt="Xavier Bolduc-Meilleur">
+                <div class="member-info">
+                    <span class="member-name">Xavier Bolduc-Meilleur</span>
+                    <span class="member-title"><i>Developer</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/xavier-bolduc-meilleur-a87a71b1/"
+                            alt="LinkedIn - Xavier Bolduc-Meilleur" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Xavier Bolduc-Meilleur is currently based in Québec, Canada. He works as
+                        a developer, and joined the DigitalHumani Team as an opportunity to
+                        learn new technologies while working on an inspiring project that is
+                        focused on helping reforestation instead of making profits. He knew that
+                        every person joining the team will be there with a motivation to work
+                        for the project's success. If he could pick up a new skill in an
+                        instant, it would be team and project management.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="member" style="background-image: url('img/team/picture-ruediger-busche.webp')"
+                alt="Rüdiger Busche">
+                <div class="member-info">
+                    <span class="member-name">Rüdiger Busche</span>
+                    <span class="member-title"><i>Software Engineer</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/rfbusche/" alt="LinkedIn - Rüdiger Busche" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Rüdiger is currently based in Hanover, Germany. He supports
+                        DigitalHumani as a backend developer and in DevOps. He joined
+                        DigitalHumani to explore ways in which technology can be part of the
+                        climate solution and quickly grew addicted to watching increasing
+                        numbers of trees being planted. If Rüdiger could pick up a new skill in
+                        an instant it would be understanding category theory, even if it was
+                        only for drawing profoundly looking diagrams.
+                    </p>
+                </div>
+            </div>
+
+            <div class="member" style="background-image: url('img/team/picture-arthur-dano.jpg')" alt="Arthur Dano">
+                <div class="member-info">
+                    <span class="member-name">Arthur Dano</span>
+                    <span class="member-title"><i>Software Engineer</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/arthur-dano-2b32368b/" alt="LinkedIn - Arthur Dano"
+                            target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Arthur wanted to put his expertise as a Software Engineer to work for a cause that he believes
+                        in, which is what led him to join the DigitalHumani Team. In his words, what could be better
+                        than reforestation for a better future? Currently, Arthur is based in Rennes, France. If he
+                        could pick up any skill, it would be the ability to identify all plants and how to use them!
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="member" style="background-image: url('img/team/picture-brett-duboff.jpg')" alt="Brett Duboff">
+                <div class="member-info">
+                    <span class="member-name">Brett Duboff</span>
+                    <span class="member-title"><i>UX/UI Design and Graphic Design</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/brettduboff/" alt="LinkedIn - Brett Duboff"
+                            target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Brett is a UX/UI and Graphic Designer currently based in Boston. He joined the DigitalHumani
+                        team to use his design skills to make an impact in the world. If Brett could pick up a skill in
+                        an instant, it would be the ability to hear a song and be able to play it on an instrument right
+                        away.
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="member" style="background-image: url('img/team/picture-jean-pascal-hebert.jpg')"
+                alt="Jean Pascal Hébert">
+                <div class="member-info">
+                    <span class="member-name">Jean Pascal Hébert</span>
+                    <span class="member-title"><i>Head of Commercial</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/jphebert/" alt="LinkedIn - Jean Pascal Hébert"
+                            target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        JP is a career business executive, dad & dog owner based in Montreal. He is working as head of
+                        commercial for DigitalHumani handling customer-facing activities, marketing, communications and
+                        whatever else may be needed, for a good cause! JP wants to make the world a better place, one
+                        tree at a time. If he could pick up any skill in an instant, it would be either electric guitar
+                        or finance (he’s sure they're quite similar).
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="member" style="background-image: url('img/team/picture-sylvie-roux.jpg')" alt="Sylvie Roux">
+                <div class="member-info">
+                    <span class="member-name">Sylvie Roux</span>
+                    <span class="member-title"><i>Administrator</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/sylvieroux/" alt="LinkedIn - Sylvie Roux" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Sylvie Roux is a teacher based near Montreal. Because of her ecological and pro-environmental
+                        side, she felt she had to take advantage of the opportunity to be part of this committed and
+                        green team. She joined DigitalHumani as an observer and administrator. If she could pick up a
+                        new skill in an instant, it would be raising awareness of the R rule. Refuse, Reduce, Reuse,
+                        Recycle and… Compost.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="member" style="background-image: url('img/team/picture-evgeniya-slinko.jpg')"
+                alt="Evgeniya Slinko">
+                <div class="member-info">
+                    <span class="member-name">Evgeniya Slinko</span>
+                    <span class="member-title"><i>Product Manager</i></span>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/slinko/" alt="LinkedIn - Evgeniya Slinko" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="member-bio">
+                        Evgeniya is a Product Manager based in Tallinn, Estonia. She cares deeply about reforestation
+                        restoration. This, and her overall strong will to contribute to Earth’s wellbeing, is what led
+                        her to join the DigitalHumani team. If Evgeniya could pick up any skill in an instant, it would
+                        be to draw beautiful and meaningful sketches illustrating all her reflections about life.
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </section>
+    <!-- End Team Section -->
+
+    <!-- Donate -->
+    <section id="support" class="bg-white" style="padding-top: 150px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading" style="font-size: 16px">
+                        <h2>Support our mission</h2>
+                        <p>
+                            DigitalHumani is a non-profit organization (ID 1176355692, registered in Quebec, Canada)
+                            that is supported entirely by your generous donations.
+                        </p>
+                        <p>
+                            Donate today to support our mission to make our planet greener 🌲
+                        </p>
+                        <br />
+                        <a href="/donate.html" target="_blank">
+                            <button class="cta-button border-2 invert" style="font-size: 18px;">Donate</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="home-section bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Contact us</h2>
+                        <p>
+                            Please do not hesitate to contact us for more information about our
+                            RaaS (Reforestation as a Service) solution. Email us at<b>
+                                <a href="mailto:info@DigitalHumani.com">info@DigitalHumani.com</a> </b>and we will get
+                            in touch with you shortly.
+                        </p>
+                        <br />
+
+                        <!-- Begin Mailchimp Signup Form -->
+                        <link href="https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css"
+                            rel="stylesheet" type="text/css" />
+                        <style type="text/css">
+                            #mc_embed_signup {
+                                background: #fff;
+                                clear: left;
+                                font: 14px Helvetica, Arial, sans-serif;
+                                width: 100%;
+                            }
+
+                            /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                        </style>
+                        <div id="mc_embed_signup">
+                            <form
+                                action="https://digitalhumani.us2.list-manage.com/subscribe/post?u=4a7b79f4faac08ff82141c3f6&amp;id=3e865ed773"
+                                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                class="validate" target="_blank" novalidate>
+                                <div id="mc_embed_signup_scroll">
+                                    <label for="mce-EMAIL">Please subscribe to our newsletter!</label>
+                                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL"
+                                        placeholder="email address" required />
+                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style="position: absolute; left: -5000px" aria-hidden="true">
+                                        <input type="text" name="b_4a7b79f4faac08ff82141c3f6_3e865ed773" tabindex="-1"
+                                            value="" />
+                                    </div>
+                                    <div class="clear">
+                                        <input type="submit" value="Subscribe" name="subscribe"
+                                            id="mc-embedded-subscribe" class="button" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--End mc_embed_signup-->
+
+                        <center>
+                            <img src="img/Logo-DigitalHumani.png" alt="RaaS Logo" width="190" height="344" />
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Footer social media links -->
+                    <a aria-label="Linkedin page" href="https://www.linkedin.com/company/digitalhumani/" target="_blank"
+                        rel="noreferrer noopener">
+                        <i class="fa fa-linkedin" style="font-size: 1.7rem; color: white"></i>
+                    </a>
+                    <a aria-label="Twitter page" href="https://twitter.com/Digital_Humani" target="_blank"
+                        rel="noreferrer noopener">
+                        <i id="socialTwitter" class="fa fa-twitter"
+                            style="font-size: 1.7rem; margin: 0 5px; color: white"></i>
+                    </a>
+                    <a aria-label="Facebook page" href="https://www.facebook.com/DigitalHumani" target="_blank"
+                        rel="noreferrer noopener">
+                        <i class="fa fa-facebook" style="font-size: 1.7rem; color: white"></i>
+                    </a>
+                    <div class="credits" style="margin-top: 2rem">
+                        <!--
+              All the links in the footer should remain in tact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Mamba
+            -->
+                        Theme built from
+                        <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
+                    </div>
+                    <p style="margin-top: 2rem">DigitalHumani 🌲.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/jquery.dlmenu.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="contactform/contactform.js"></script>
+
+    <!-- Default Statcounter code for Digitalhumani.com
+http://digitalhumani.com -->
+    <script type="text/javascript">
+        var sc_project = 12016121;
+        var sc_invisible = 1;
+        var sc_security = "13bfd31e";
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript>
+        <div class="statcounter">
+            <a title="Web Analytics
+Made Easy - StatCounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
+                    src="https://c.statcounter.com/12016121/0/13bfd31e/1/" alt="Web Analytics Made Easy -
+StatCounter" /></a>
+        </div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+</body>
+
+</html>

@@ -1,2 +1,2 @@
-# digitalhumani.com
-The public-facing marketing site for DigitalHumani
+# netlify-test
+Test deployment of Netlify static site

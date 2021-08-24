@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reforestation Report</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <style type="text/css">
+        :root {
+            font-size: 12px;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            background: linear-gradient(to bottom right,
+                    #fafafa calc(50% - 150px),
+                    #0d4e03 calc(50% - 148px),
+                    #0d4e03 calc(50% + 50px),
+                    transparent calc(50% + 51px)) no-repeat 0px 0px / 100% 100%;
+        }
+
+        main {
+            width: 60%;
+            margin: 7rem auto;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            display: flex;
+            align-items: end;
+        }
+
+        .title img {
+            width: 2.5rem;
+            margin-right: 1rem;
+        }
+
+        .form-input {
+            font-size: 1.35rem;
+        }
+
+        .form-input#date-input {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 6rem;
+        }
+
+        .form-input#key-input {
+            float: right;
+            margin-top: 1rem;
+        }
+
+        .form-input label {
+            color: #3c3c3c;
+            margin-right: 1.25rem;
+        }
+
+        #date-input input {
+            margin-right: 3.5rem;
+            padding: 0.3rem;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.19);
+        }
+
+        #key-input input {
+            margin-right: 2rem;
+            padding: 0.3rem;
+            font-size: 1.25rem;
+        }
+
+        .stage {
+            background: #ffffff;
+            padding: 3rem;
+            box-shadow: 2px 3px 9px rgba(0, 0, 0, 0.19);
+            border-radius: 0.8rem;
+            margin-bottom: 5rem;
+        }
+
+        .table-label {
+            position: relative;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .table-label::before {
+            position: absolute;
+            width: 65%;
+            height: 0.5rem;
+            background: #187509;
+            bottom: -3px;
+            content: "";
+        }
+
+        table {
+            width: 100%;
+            font-size: 1.5rem;
+            text-align: left;
+            border-spacing: 0px;
+        }
+
+        table thead,
+        table tbody {
+            display: block;
+        }
+
+        table thead {
+            margin-top: 1rem;
+        }
+
+        table tbody {
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        table th {
+            font-size: 1.35rem;
+            font-weight: normal;
+            color: #757575;
+        }
+
+        table tr {
+            display: flex;
+            padding: 1.35rem 0rem;
+        }
+
+        tr :nth-child(1),
+        tr :nth-child(2) {
+            flex: 50%;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #placeholder-msg {
+            display: block;
+            color: #4e4e4e;
+            font-size: 1.15rem;
+            margin-top: 2rem;
+        }
+    </style>
+    <script type="text/javascript">
+        // Set default start (30 days ago) and end date (today)
+        const now = new Date();
+        const daysAgo = 1000 * 60 * 60 * 24;
+        const defaultStart = formatDate(new Date(now - 30 * daysAgo));
+        const defaultEnd = formatDate(now);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const startDateEl = document.getElementById("startDate");
+            const endDateEl = document.getElementById("endDate");
+
+            // Set default start and end dates for date inputs
+            startDateEl.value = defaultStart;
+            endDateEl.value = defaultEnd;
+
+            // Trigger report update on DOM load (dev table), as well as on date element change (all tables)
+            updateReport(document.querySelector("table#dev"));
+            startDateEl.addEventListener("change", () => {
+                updateReport();
+            });
+            endDateEl.addEventListener("change", () => {
+                updateReport();
+            });
+
+            // On insert of API keys, validate and update associated reports
+            document.getElementById("prod-key").addEventListener("input", () => onKeyChange("table#prod"));
+            document.getElementById("staging-key").addEventListener("input", () => onKeyChange("table#staging"));
+
+            // On API key change, update report identified by tableId
+            function onKeyChange(tableId) {
+                if (validateAPIKey()) {
+                    updateReport(document.querySelector(tableId));
+                } else {
+                    // Display placeholder message if API key is invalid
+                    document.querySelector(tableId).classList.add("hidden");
+                    document.getElementById("placeholder-msg").classList.remove("hidden");
+                }
+            }
+        });
+
+        // Update dev, staging, prod report data via API.
+        // Provide table element to update specific stage, or none to update all
+        function updateReport(tableEl = null) {
+            let startDate = document.getElementById("startDate").value || defaultStart;
+            let endDate = document.getElementById("endDate").value || defaultEnd;
+            let query = `?startDate=${startDate}&endDate=${endDate}`;
+
+            // Determine elements to update - tableEl if provided and is a single table element, or all table elements (all stages)
+            let isValidEl = (el) => {
+                return (
+                    el &&
+                    el.tagName.toLowerCase() === "table" &&
+                    !NodeList.prototype.isPrototypeOf(el)
+                );
+            };
+            let toUpdate = isValidEl(tableEl)
+                ? [tableEl]
+                : document.querySelectorAll("table.report-api");
+
+            toUpdate.forEach((table) => {
+                let opts = {};
+
+                // Validated API key required for fetching report data
+                if (table.id.toLowerCase() === "prod") {
+                    if (validateAPIKey()) {
+                        opts.headers = {
+                            "x-api-key": document.getElementById("prod-key").value,
+                        };
+                    } else {
+                        return;
+                    }
+                }
+                else if (table.id.toLowerCase() === "staging") {
+                    if (validateAPIKey()) {
+                        opts.headers = {
+                            "x-api-key": document.getElementById("staging-key").value,
+                        };
+                    } else {
+                        return;
+                    }
+                }
+
+                let url = `${table.dataset.api}/tree/report`;
+
+                fetch(url + query, opts)
+                    .then(handleResponse)
+                    .then((data) => {
+                        setTableData(table, data);
+                    })
+                    .catch((error) => console.error(error.message));
+            });
+
+            // Handle fetch response
+            function handleResponse(response) {
+                if (!response.ok) {
+                    return response.json().then((json) => {
+                        throw new Error(json.message);
+                    });
+                }
+                return response.json();
+            }
+
+            // Update table with data returned from API
+            function setTableData(table, data) {
+                // Clear table contents
+                let tbody = table.querySelector("tbody");
+                tbody.innerHTML = "";
+
+                // Insert new table rows containing API data
+                data.forEach((enterprise) => {
+                    let row = tbody.insertRow(0);
+                    row.innerHTML = `<td>${enterprise.name}</td><td>${enterprise.treeCount}</td>`;
+                    row.title = enterprise.id;
+                });
+
+                // Display production data, hide placeholder msg
+                if (table.id === "prod") {
+                    table.classList.remove("hidden");
+                    document.getElementById("placeholder-msg").classList.add("hidden");
+                }
+            }
+        }
+
+        // Format date object into YYYY-MM-DD
+        function formatDate(date) {
+            let month = date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+            let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+            return `${date.getFullYear()}-${month}-${day}`;
+        }
+
+        // Client-side validation of provided API key
+        function validateAPIKey() {
+            return document.getElementById("prod-key").value.length >= 36;
+        }
+    </script>
+</head>
+
+<body>
+    <main>
+        <span class="title">
+            <img src="/img/Logo-DigitalHumani.png" alt="Digital Humani Logo" />
+            Reforestation Report
+        </span>
+
+        <div class="form-input" id="date-input">
+            <label for="start">Start Date</label>
+            <input id="startDate" type="date" />
+            <label for="end">End Date</label>
+            <input id="endDate" type="date" />
+        </div>
+
+        <div class="stage">
+            <label for="prod" class="table-label">Prod</label>
+
+            <div class="form-input" id="key-input">
+                <label for="prod-key">API Key</label>
+                <input id="prod-key" type="text" />
+            </div>
+
+            <table id="prod" class="report-api hidden" data-api="https://api.digitalhumani.com">
+                <thead>
+                    <tr>
+                        <th>Enterprise</th>
+                        <th>Trees</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <span id="placeholder-msg">To view production data, enter API key</span>
+        </div>
+
+        <div class="stage">
+            <label for="dev" class="table-label">Dev</label>
+            <table id="dev" class="report-api" data-api="https://api.dev.digitalhumani.com">
+                <thead>
+                    <tr>
+                        <th>Enterprise</th>
+                        <th>Trees</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="stage">
+            <label for="staging" class="table-label">Staging</label>
+
+            <div class="form-input" id="key-input">
+                <label for="staging-key">API Key</label>
+                <input id="staging-key" type="text" />
+            </div>
+
+            <table id="staging" class="report-api" data-api="https://api.staging.digitalhumani.com">
+                <thead>
+                    <tr>
+                        <th>Enterprise</th>
+                        <th>Trees</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
